@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import by.zharikov.moviesapi.MainViewModel
+import by.zharikov.moviesapi.screens.DetailsScreen
 import by.zharikov.moviesapi.screens.MainScreen
 import by.zharikov.moviesapi.screens.SplashScreen
 import by.zharikov.moviesapi.utils.Constants.Screens.DETAILS_SCREEN
@@ -26,7 +27,8 @@ fun SetupNavHost(navController: NavHostController, viewModel: MainViewModel) {
         composable(Screens.MainScreen.route){
             MainScreen(navController, viewModel)
         }
-        composable(Screens.DetailsScreen.route){
+        composable(Screens.DetailsScreen.route + "/{Id}"){ backStackEntry ->
+            DetailsScreen(navController = navController, viewModel = viewModel, itemId = backStackEntry.arguments?.getString("Id") ?: "1")
 
         }
 
