@@ -15,7 +15,7 @@ data class Movies(
     @SerializedName("genres")
     val genres: List<String?>? = null,
     @SerializedName("id")
-    val id: Int? = null,
+    var id: Int? = null,
     @SerializedName("image")
     val image: Image? = null,
     @SerializedName("language")
